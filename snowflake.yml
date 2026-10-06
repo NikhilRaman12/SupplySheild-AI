@@ -1,2 +1,20 @@
 definition_version: 1
-project_name: supplyshield
+project_name: supplyshield_ai
+
+env:
+  database: SUPPLYSHIELD_DB
+  schema: PUBLIC
+  warehouse: COMPUTE_WH
+
+streamlit:
+  name: supplyshield_control_tower
+  stage: supplyshield_stage
+  query_warehouse: COMPUTE_WH
+  main_file: app.py
+  title: "SupplyShield AI Control Tower"
+
+cortex:
+  agent_name: supplyshield_copilot
+  semantic_models:
+    - name: supply_chain_risk
+      file: semantic_model.yaml
